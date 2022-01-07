@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {
   blackTextColor,
   cardLast4,
@@ -12,8 +12,9 @@ import LottieView from 'lottie-react-native';
 import {AtmCard, Container, Footer, Section, Transactions} from '../components';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcons from 'react-native-vector-icons/MaterialIcons';
+import { HMSProps } from '..';
 
-export function HomeSc() {
+export function HomeSc({navigation}: HMSProps) {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       {/* Header*/}
@@ -89,7 +90,9 @@ export function HomeSc() {
       </Text>
 
       <Container style={{marginVertical: 25, padding: 10}}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity style={{justifyContent: 'center', alignItems: 'center'}}
+        onPress={() => navigation.navigate('TransferSc')}
+        >
           <MIcons name="send" size={30} color="black" />
           <Text
             style={{
@@ -100,7 +103,7 @@ export function HomeSc() {
             }}>
             Transfer
           </Text>
-        </View>
+        </TouchableOpacity>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <MCIcons name="reload" size={30} color="black" />
           <Text

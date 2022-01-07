@@ -2,10 +2,11 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {rootStackParams} from '..';
-import {HMSC, LNSC, SPSC} from '../constant';
+import {HMSC, LNSC, SPSC, TSC} from '../constant';
 import {SplashSc} from '../screens/SplashSc';
 import {LandingSc} from '../screens/LandingSc';
 import { HomeSc } from '../screens/HomeSc';
+import { TransferSc } from '../screens/TransferSc';
 
 const RootStack = createNativeStackNavigator<rootStackParams>();
 
@@ -31,6 +32,14 @@ export function Navigator() {
         <RootStack.Screen
           name={HMSC}
           component={HomeSc}
+          options={{
+            headerShown: false,
+            animation: 'slide_from_right'
+          }}
+        />
+        <RootStack.Screen
+          name={TSC}
+          component={TransferSc}
           options={{
             headerShown: false,
             animation: 'slide_from_right'
