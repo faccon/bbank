@@ -7,11 +7,14 @@ import {
   ListRenderItemInfo,
   FlatList,
   Pressable,
+  StyleSheet,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import {
   BALANCE,
   blackTextColor,
+  CARD_PIN,
   containerBgColor,
   CREDIT,
   CURRENCY,
@@ -27,15 +30,16 @@ import MIcons from 'react-native-vector-icons/MaterialIcons';
 import FAIcons from 'react-native-vector-icons/FontAwesome';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {rootStackParams} from '..';
+import {ALSProps, rootStackParams} from '..';
 import {NavigationProp} from '@react-navigation/native';
+import FEIcons from 'react-native-vector-icons/Feather';
 
 interface IMProps {
   size: number;
 }
 
 interface CProps {
-  children: Element[];
+  children: Element[] | Element;
   style?: ViewStyle;
 }
 
@@ -344,5 +348,23 @@ export function Transactions() {
       }
       scrollEnabled
     />
+  );
+}
+
+export function AlertScreen({route}: ALSProps) {
+  const {children} = route.params;
+  return (
+    <View
+      style={{
+        borderTopColor: 'white',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        paddingBottom: 100,
+        backgroundColor: primColorFaint,
+        flex: 1,
+      }}>
+      {children}
+    </View>
   );
 }

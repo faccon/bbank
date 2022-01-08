@@ -2,12 +2,13 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {rootStackParams} from '..';
-import {CARDSC, HMSC, LNSC, SPSC, TSC} from '../constant';
+import {ALERTSC, CARDSC, HMSC, LNSC, SPSC, TSC} from '../constant';
 import {SplashSc} from '../screens/SplashSc';
 import {LandingSc} from '../screens/LandingSc';
-import { HomeSc } from '../screens/HomeSc';
-import { TransferSc } from '../screens/TransferSc';
-import { CardSc } from '../screens/CardSc';
+import {HomeSc} from '../screens/HomeSc';
+import {TransferSc} from '../screens/TransferSc';
+import {CardSc} from '../screens/CardSc';
+import {AlertScreen} from '../components';
 
 const RootStack = createNativeStackNavigator<rootStackParams>();
 
@@ -27,7 +28,7 @@ export function Navigator() {
           component={LandingSc}
           options={{
             headerShown: false,
-            animation: 'slide_from_bottom'
+            animation: 'slide_from_bottom',
           }}
         />
         <RootStack.Screen
@@ -35,7 +36,7 @@ export function Navigator() {
           component={HomeSc}
           options={{
             headerShown: false,
-            animation: 'slide_from_right'
+            animation: 'slide_from_right',
           }}
         />
         <RootStack.Screen
@@ -43,7 +44,7 @@ export function Navigator() {
           component={TransferSc}
           options={{
             headerShown: false,
-            animation: 'slide_from_right'
+            animation: 'slide_from_right',
           }}
         />
         <RootStack.Screen
@@ -51,7 +52,16 @@ export function Navigator() {
           component={CardSc}
           options={{
             headerShown: false,
-            animation: 'slide_from_bottom'
+            animation: 'slide_from_bottom',
+          }}
+        />
+        <RootStack.Screen
+          name={ALERTSC}
+          component={AlertScreen}
+          options={{
+            headerShown: false,
+            animation: 'slide_from_bottom',
+            presentation: 'transparentModal'
           }}
         />
       </RootStack.Navigator>

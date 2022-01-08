@@ -8,7 +8,12 @@ type rootStackParams = {
   HomeSc: undefined;
   TransferSc: undefined;
   CardSc: undefined;
+  AlertSc: AlertScProps;
 };
+
+interface AlertScProps {
+  children: Element[] | Element;
+}
 
 type SSProps = NativeStackScreenProps<rootStackParams, 'SplashSc'>;
 type LSProps = NativeStackScreenProps<rootStackParams, 'LoginSc'>;
@@ -17,12 +22,4 @@ type LNSProps = NativeStackScreenProps<rootStackParams, 'LandingSc'>;
 type HMSProps = NativeStackScreenProps<rootStackParams, 'HomeSc'>;
 type TSProps = NativeStackScreenProps<rootStackParams, 'TransferSc'>;
 type CSProps = NativeStackScreenProps<rootStackParams, 'CardSc'>;
-
-
-
-
-
-
-
-
-
+type ALSProps = NativeStackScreenProps<rootStackParams, 'AlertSc'>;

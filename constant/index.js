@@ -7,6 +7,7 @@ export const LNSC = 'LandingSc';
 export const TSC = 'TransferSc';
 export const HMSC = 'HomeSc';
 export const CARDSC = 'CardSc';
+export const ALERTSC = 'AlertSc';
 
 export const DEBIT = '- ';
 export const CREDIT = ' + ';
@@ -15,6 +16,7 @@ export const CURRENCY = '€ ';
 export const HIDDEN_CARD_NO = ' **** **** **** 8421 ';
 export const HIDDEN_CARD_EXP = ' **/** ';
 export const HIDDEN_CARD_CVC = ' *** ';
+export const CARD_PIN = ' 1234 ';
 
 export const width = Dimensions.get('screen').width;
 export const height = Dimensions.get('screen').height;
