@@ -6,22 +6,29 @@ import {
   ViewStyle,
   ListRenderItemInfo,
   FlatList,
+  Pressable,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import {
   BALANCE,
   blackTextColor,
+  containerBgColor,
   CREDIT,
   CURRENCY,
   DEBIT,
   height,
   MainCardLast4,
   primColor,
+  primColorFaint,
   width,
 } from '../constant';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcons from 'react-native-vector-icons/MaterialIcons';
+import FAIcons from 'react-native-vector-icons/FontAwesome';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {rootStackParams} from '..';
+import {NavigationProp} from '@react-navigation/native';
 
 interface IMProps {
   size: number;
@@ -36,7 +43,6 @@ interface SProps {
   rightText: string;
   leftText: string;
   style?: ViewStyle;
-
 }
 
 interface TSProps {
@@ -44,6 +50,13 @@ interface TSProps {
   destination: string;
   date: Date | string;
   type: string;
+}
+
+interface FTProps {
+  navigation: NativeStackNavigationProp<
+    rootStackParams,
+    'HomeSc' | 'TransferSc'
+  >;
 }
 
 export function CardImage({size}: IMProps) {
@@ -72,7 +85,7 @@ export function Container({children, style}: CProps) {
         justifyContent: 'space-between',
         marginHorizontal: 20,
         alignItems: 'center',
-        backgroundColor: '#F7F6F5',
+        backgroundColor: containerBgColor,
         borderRadius: 5,
         ...style,
       }}>
@@ -88,7 +101,7 @@ export function Section({leftText, rightText, style}: SProps) {
         justifyContent: 'space-between',
         alignItems: 'center',
         marginHorizontal: 20,
-        ...style
+        ...style,
       }}>
       <Text
         style={{
@@ -113,7 +126,7 @@ export function Section({leftText, rightText, style}: SProps) {
     </View>
   );
 }
-export function Footer() {
+export function Footer({navigation}: FTProps) {
   return (
     <View
       style={{
@@ -139,7 +152,11 @@ export function Footer() {
         </Text>
       </View>
       <MCIcons name="arrow-top-right-thick" size={25} color="white" />
-      <MIcons name="settings" size={25} color="white" />
+      <Pressable
+        onPress={() => navigation.navigate('CardSc')}
+        android_ripple={{radius: 12, borderless: true, color: primColorFaint}}>
+        <FAIcons name="credit-card-alt" size={20} color="white" />
+      </Pressable>
       <MCIcons name="account" size={25} color="white" />
     </View>
   );
@@ -250,7 +267,7 @@ const RenderTransaction = ({amount, date, destination, type}: TSProps) => {
           style={{
             color: type === CREDIT ? primColor : blackTextColor,
             fontSize: 20,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
           }}>
           {type + CURRENCY + amount}
         </Text>
@@ -293,7 +310,7 @@ export function Transactions() {
     {
       amount: '45.70',
       date: 'Yesterday',
-      destination: "Vodafone DE",
+      destination: 'Vodafone DE',
       type: DEBIT,
     },
     {

@@ -6,7 +6,8 @@ type rootStackParams = {
   RegSc: undefined;
   LandingSc: undefined;
   HomeSc: undefined;
-  TransferSc: undefined
+  TransferSc: undefined;
+  CardSc: undefined;
 };
 
 type SSProps = NativeStackScreenProps<rootStackParams, 'SplashSc'>;
@@ -15,3 +16,13 @@ type RSProps = NativeStackScreenProps<rootStackParams, 'RegSc'>;
 type LNSProps = NativeStackScreenProps<rootStackParams, 'LandingSc'>;
 type HMSProps = NativeStackScreenProps<rootStackParams, 'HomeSc'>;
 type TSProps = NativeStackScreenProps<rootStackParams, 'TransferSc'>;
+type CSProps = NativeStackScreenProps<rootStackParams, 'CardSc'>;
+
+
+
+
+
+
+
+
+

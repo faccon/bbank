@@ -12,7 +12,7 @@ import LottieView from 'lottie-react-native';
 import {AtmCard, Container, Footer, Section, Transactions} from '../components';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MIcons from 'react-native-vector-icons/MaterialIcons';
-import { HMSProps } from '..';
+import {HMSProps} from '..';
 
 export function HomeSc({navigation}: HMSProps) {
   return (
@@ -26,7 +26,7 @@ export function HomeSc({navigation}: HMSProps) {
           alignItems: 'center',
           backgroundColor: primColor,
           margin: 10,
-          borderRadius: 10
+          borderRadius: 10,
         }}>
         <Text
           style={{
@@ -84,15 +84,15 @@ export function HomeSc({navigation}: HMSProps) {
           textAlign: 'left',
           fontWeight: 'bold',
           paddingHorizontal: 20,
-          letterSpacing: -2
+          letterSpacing: -2,
         }}>
         {cardLastBalance}
       </Text>
 
       <Container style={{marginVertical: 25, padding: 10}}>
-        <TouchableOpacity style={{justifyContent: 'center', alignItems: 'center'}}
-        onPress={() => navigation.navigate('TransferSc')}
-        >
+        <TouchableOpacity
+          style={{justifyContent: 'center', alignItems: 'center'}}
+          onPress={() => navigation.navigate('TransferSc')}>
           <MIcons name="send" size={30} color="black" />
           <Text
             style={{
@@ -130,11 +130,15 @@ export function HomeSc({navigation}: HMSProps) {
         </View>
       </Container>
 
-      <Section style={{marginBottom:5}} leftText="Last transactions" rightText="Manage" />
+      <Section
+        style={{marginBottom: 5}}
+        leftText="Last transactions"
+        rightText="Manage"
+      />
       <Transactions />
 
       <View style={{position: 'absolute', bottom: 0, left: 0, width: '100%'}}>
-        <Footer />
+        <Footer navigation={navigation} />
       </View>
     </View>
   );
